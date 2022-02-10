@@ -1,25 +1,133 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="8" />
-      <title>Assignment 1</title>
-      <body>
-          <h1>Here is an image of a blackhole depicted in the "Interstellar"</h1>
-          <h2>
-            <img src="https://images.theconversation.com/files/64127/original/2mdvqkw8-1415620078.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip" alt="intersteller">
-          </h2>
-          
-             
-          
-      </body>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./stylesheet.css" />
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <style>
+        svg{
+            background:white;
+        }
+        
+    </style>
+    </head>
+    <body>
+        
+        
+
+        
+        <div id = "banner">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+
+        <h1 style="font-size: 75px; color:white;">
+                European Refugee<br> Report<br> 2020
+
+        </h1>
+
+        </div>
+        <br>
+        <br>
+        <br> 
+        <br>
+        <br>
+        <br> 
+        
+    
+    <div style="font-family: Garamond, serif; font-size: 65px; text-align: start; font-weight:lighter;">
+        &emsp;&emsp;&emsp;Lorem ipsum dolor sit, amet <br>&emsp;&emsp;&emsp;adipisicing elit. 
+        Suscipit ad doloremque
+        <br>
+        <p style = "font-family: Garamond, serif; font-size: 30px; text-align: start;">
+            &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Lorem ipsum dolor sit, amet adipisicing elit, Suscipit ad doloremeque
+            <br>
+            &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Lorem ipsum dolor sit, amet adipisicing elit, Suscipit ad doloremeque
+            <br>
+            &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Lorem ipsum dolor sit, amet adipisicing elit, Suscipit ad doloremeque
+            <br>
+            &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Lorem ipsum dolor sit, amet adipisicing elit, Suscipit ad doloremeque
+            <br>
+            <br>
+            <br>
+            <br>
+        </p>
+
+    </div>
+    <div id = "map">
+       
+
+    </div>
+    
+      
+    
+    <script>
+    var margin = {top: 50, left: 50, right: 50, bottom: 50};
+        
+
+
+    var width = 900 - margin.right - margin.left;
+    var height = 1400 - margin.top - margin.bottom;
+    var mapwidth = 1000;
+    var mapheight = 1000;  
+      
+    var svg = d3.select("#map")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top +")");
+      
+    d3.queue()
+        .defer(d3.json, "europe..json")
+        .await(ready)
+
+
+    var projection = d3.geoMercator()
+        .translate([width / 2, height / 2 ])
+        .scale(400)
+        .center([30,70]);
+
+    var path = d3.geoPath()
+        .projection(projection);
+
+    function ready(error, data){
+        console.log(data)
+
+        var countries = topojson.feature(data, data.objects.continent_Europe_subunits).features
+        console.log(countries)
+
+        svg.selectAll(".country")
+        .data(countries)
+        .enter().append("path")
+        .attr("class", "country")
+        .attr("d", path)
+    }
+
+    
 
       
 
-  </head>
+    </script>
+    
+    
 
 
 
 
+
+
+
+
+
+  </body>
 </html>
 
 
