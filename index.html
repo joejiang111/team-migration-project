@@ -15,31 +15,14 @@
     </head>
     <body>
         
-        
+    <br>
+    <br>
+    <br>
+
 
         
-        <div id = "banner">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            
-
-        <h1 style="font-size: 75px; color:white;">
-                European Refugee<br> Report<br> 2020
-
-        </h1>
-
-        </div>
-        <br>
-        <br>
-        <br> 
-        <br>
-        <br>
-        <br> 
+        
+        
         
     
     <div style="font-family: Garamond, serif; font-size: 65px; text-align: start; font-weight:lighter;">
@@ -55,10 +38,10 @@
             <br>
             &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Lorem ipsum dolor sit, amet adipisicing elit, Suscipit ad doloremeque
             <br>
-            <br>
-            <br>
-            <br>
+            
+            &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button onclick="showPoints()"> function 1</button>
         </p>
+        
 
     </div>
     <div id = "map">
@@ -73,8 +56,8 @@
         
 
 
-    var width = 900 - margin.right - margin.left;
-    var height = 1400 - margin.top - margin.bottom;
+    var width = 1800 - margin.right - margin.left;
+    var height = 1000 - margin.top - margin.bottom;
     var mapwidth = 1000;
     var mapheight = 1000;  
       
@@ -86,14 +69,15 @@
         .attr("transform", "translate(" + margin.left + "," + margin.top +")");
       
     d3.queue()
-        .defer(d3.json, "europe..json")
+        .defer(d3.json, "world-alpha3.json")
         .await(ready)
 
 
     var projection = d3.geoMercator()
         .translate([width / 2, height / 2 ])
-        .scale(400)
-        .center([30,70]);
+        .scale(220)
+        .center([30,50])
+        
 
     var path = d3.geoPath()
         .projection(projection);
@@ -101,7 +85,7 @@
     function ready(error, data){
         console.log(data)
 
-        var countries = topojson.feature(data, data.objects.continent_Europe_subunits).features
+        var countries = topojson.feature(data, data.objects.countries).features
         console.log(countries)
 
         svg.selectAll(".country")
@@ -109,6 +93,20 @@
         .enter().append("path")
         .attr("class", "country")
         .attr("d", path)
+    }
+
+    function showPoints() {
+        
+
+
+
+
+
+
+
+
+
+
     }
 
     
