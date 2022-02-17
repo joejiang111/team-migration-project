@@ -13,9 +13,21 @@
     
 }
 
+body{
+    margin: 0;
+}
 h1{
     font-family: Georgia, 'Times New Roman', Times,serif;
     text-align:center;
 }
 
+svg{
+    background:black;
+    fill: dimgrey;
+    margin: 0;
+}
 
+#map{
+    margin:0
+    
+}
