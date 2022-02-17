@@ -2,44 +2,28 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="./stylesheet.css" />
+    
+    <link rel='stylesheet' href="./stylesheet.css" />
+
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://unpkg.com/topojson@3"></script>
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
     <style>
-        svg{
-            background:white;
-        }
+        
         
     </style>
     </head>
     <body>
         
-        
+    <br>
+    <br>
+    <br>
+
 
         
-        <div id = "banner">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            
-
-        <h1 style="font-size: 75px; color:white;">
-                European Refugee<br> Report<br> 2020
-
-        </h1>
-
-        </div>
-        <br>
-        <br>
-        <br> 
-        <br>
-        <br>
-        <br> 
+        
+        
         
     
     <div style="font-family: Garamond, serif; font-size: 65px; text-align: start; font-weight:lighter;">
@@ -55,10 +39,10 @@
             <br>
             &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Lorem ipsum dolor sit, amet adipisicing elit, Suscipit ad doloremeque
             <br>
-            <br>
-            <br>
-            <br>
+            
+            &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button onclick="showPoints()"> function 1</button>
         </p>
+        
 
     </div>
     <div id = "map">
@@ -66,24 +50,27 @@
 
     </div>
     
-      
+    <br>
+    <br>
+    <br>
+
     
     <script>
-    var margin = {top: 50, left: 50, right: 50, bottom: 50};
+    
         
 
 
-    var width = 900 - margin.right - margin.left;
-    var height = 1400 - margin.top - margin.bottom;
+    var width = window.innerWidth;
+    var height = 1000 ;
     var mapwidth = 1000;
     var mapheight = 1000;  
       
     var svg = d3.select("#map")
         .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+        .attr("width", width )
+        .attr("height", height )
         .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top +")");
+      
       
     d3.queue()
         .defer(d3.json, "europe..json")
@@ -93,7 +80,8 @@
     var projection = d3.geoMercator()
         .translate([width / 2, height / 2 ])
         .scale(400)
-        .center([30,70]);
+        .center([40,65])
+        
 
     var path = d3.geoPath()
         .projection(projection);
@@ -111,12 +99,28 @@
         .attr("d", path)
     }
 
+    function showPoints() {
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+    
     
 
       
 
     </script>
     
+    <script src="sketch.js"></script>
     
 
 

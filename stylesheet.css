@@ -10,12 +10,24 @@
     background-size:cover;
     color: black;
     font-style:normal;
-    background-image: url(https://images.pexels.com/photos/10613996/pexels-photo-10613996.jpeg?cs=srgb&dl=pexels-khaled-akacha-10613996.jpg&fm=jpg);
+    
 }
 
+body{
+    margin: 0;
+}
 h1{
     font-family: Georgia, 'Times New Roman', Times,serif;
     text-align:center;
 }
 
+svg{
+    background:black;
+    fill: dimgrey;
+    margin: 0;
+}
 
+#map{
+    margin:0
+    
+}
