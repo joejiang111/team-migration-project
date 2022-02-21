@@ -9,6 +9,8 @@
     <script src="https://unpkg.com/topojson@3"></script>
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.8.0/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-sankey/0.7.1/d3-sankey.min.js"></script>
     <style>
         
         
@@ -27,21 +29,7 @@
         
     
     <div style="font-family: Garamond, serif; font-size: 65px; text-align: start; font-weight:lighter;">
-        &emsp;&emsp;&emsp;Lorem ipsum dolor sit, amet <br>&emsp;&emsp;&emsp;adipisicing elit. 
-        Suscipit ad doloremque
-        <br>
-        <p style = "font-family: Garamond, serif; font-size: 30px; text-align: start;">
-            &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Lorem ipsum dolor sit, amet adipisicing elit, Suscipit ad doloremeque
-            <br>
-            &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Lorem ipsum dolor sit, amet adipisicing elit, Suscipit ad doloremeque
-            <br>
-            &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Lorem ipsum dolor sit, amet adipisicing elit, Suscipit ad doloremeque
-            <br>
-            &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Lorem ipsum dolor sit, amet adipisicing elit, Suscipit ad doloremeque
-            <br>
-            
-            &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button onclick="showPoints()"> function 1</button>
-        </p>
+        
         
 
     </div>
@@ -73,7 +61,7 @@
       
       
     d3.queue()
-        .defer(d3.json, "europe..json")
+        .defer(d3.json, "world-alpha3.json")
         .await(ready)
 
 
@@ -119,8 +107,25 @@
       
 
     </script>
+    <div id = "flowmap">
+    <svg id="qwe"></svg>
     
-    <script src="sketch.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+    </div>
+   
+    
+    
+   
     
 
 

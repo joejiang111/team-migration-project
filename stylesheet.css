@@ -25,6 +25,7 @@ svg{
     background:black;
     fill: dimgrey;
     margin: 0;
+    border:solid 1px black;
 }
 
 #map{
