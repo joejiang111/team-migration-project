@@ -45,7 +45,7 @@
         
 
     </div>
-    <div id = "map">
+    <div id = "maps">
        
 
     </div>
@@ -64,8 +64,9 @@
     var height = 1000 ;
     var mapwidth = 1000;
     var mapheight = 1000;  
+
       
-    var svg = d3.select("#map")
+    var svg = d3.select("#maps")
         .append("svg")
         .attr("width", width )
         .attr("height", height )
@@ -90,7 +91,7 @@
         console.log(data)
 
         var countries = topojson.feature(data, data.objects.continent_Europe_subunits).features
-        console.log(countries)
+        console.log("cons",countries)
 
         svg.selectAll(".country")
         .data(countries)
@@ -101,22 +102,22 @@
 
     function showPoints() {
 
+        print("fun run");
+        var points = [
+            {"name": "Albania", "coords": [20.066202975624474, 42.54630269136016]},
+            {"name": "Aland", "coords": [1.709977280770719, 42.500886820282375]}
+        ];
 
+        var points = svg.selectAll("circle").data(points);
 
-
-
-
-
-
-
-
+        points.enter().append("circle").attr("transform", function(d)
+        {
+            return "translate("+ projection(d.coords)+")";
+        })
+        .attr("r",10)
+        .attr("fill", "white");
 
     }
-
-    
-    
-
-      
 
     </script>
     
